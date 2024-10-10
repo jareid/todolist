@@ -18,32 +18,41 @@ PostgreSQL (v12 or higher)
 ##1. Clone the Repository
 First, clone the repository to your local machine:
 
-git clone https://github.com/your-username/todo-list.git
-cd todo-list
+```
+git clone https://github.com/jareid/todolist.git
+cd todolist
+```
 
 ## 2. Backend Setup
 ### 2.1. Install Backend Dependencies
 Navigate to the backend/ directory and install all dependencies:
 
+```
 cd backend
 npm install
+```
 
 ## 2.2. Configure the PostgreSQL Database
 
 Ensure PostgreSQL is installed and running.
 
 Create a new PostgreSQL database:
+```
 psql -U postgres
 CREATE DATABASE todolist;
+```
 Create the duties table by executing the following SQL:
 
+```
 CREATE TABLE duties (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL
 );
+```
 
 In the backend/src/db.ts file, update the PostgreSQL connection settings:
 
+```
 const pool = new Pool({
   user: 'your_postgres_username',
   host: 'localhost',
@@ -51,30 +60,41 @@ const pool = new Pool({
   password: 'your_postgres_password',
   port: 5432,
 });
+```
 
 ## 2.3. Run the Backend Server
 Start the backend server by running:
 
+```
 npm start
+```
+
 This will start the backend server on http://localhost:5000.
 
 # 3. Frontend Setup
 ## 3.1. Install Frontend Dependencies
+
 Navigate to the frontend/ directory and install the dependencies:
 
-bash
+```
 cd ../frontend
 npm install
+```
 
-##3.2. Configure Proxy for API Calls
+## 3.2. Configure Proxy for API Calls
 To ensure the frontend communicates with the backend, add the following proxy entry in the frontend/package.json file:
 
+```
 "proxy": "http://localhost:5000"
+```
 
 ## 3.3. Run the Frontend
 To run the frontend, use the following command:
 
+```
 npm start
+```
+
 This will start the frontend server on http://localhost:3000.
 
 # Running the Application
@@ -87,14 +107,18 @@ The frontend will communicate with the backend API to fetch, create, and update 
 
 Run the backend tests with:
 
+```
 cd backend
 npm test
+```
 
 ## Frontend Tests
 Run the frontend tests with:
 
+```
 cd frontend
 npm test
+```
 
 # Troubleshooting
 If you encounter any issues:
