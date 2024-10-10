@@ -6,7 +6,12 @@ const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 
-// Use routes
+// Root route (to test if server is working)
+app.get('/', (req, res) => {
+  res.send('Welcome to the To-Do List API!');
+});
+
+// Use other API routes (for to-do duties)
 app.use(router);
 
 // Start the server

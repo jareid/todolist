@@ -3,7 +3,7 @@ import { getDuties, createDuty, updateDuty, deleteDuty } from './controllers';
 
 const router = Router();
 
-// Routes for the to-do list
+// Routes for to-do list
 router.get('/duties', getDuties);
 router.post('/duties', createDuty);
 router.put('/duties/:id', updateDuty);
